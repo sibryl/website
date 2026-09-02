@@ -1,0 +1,6 @@
+{{ range .Params.modules }}
+  {{ $module := index site.Data.modules . }}
+  {{ if $module }}
+    {{ partial (printf "modules/%s.html" $module.type) (dict "page" $ "module" $module "moduleID" .) }}
+  {{ end }}
+{{ end }}

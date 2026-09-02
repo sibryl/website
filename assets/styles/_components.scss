@@ -1,0 +1,35 @@
+.button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(var(--radius) - 0.15rem);
+  background: $shadcn-primary;
+  color: $shadcn-primary-foreground;
+  padding: 0.7rem 1rem;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card {
+  min-height: 13rem;
+  border: 1px solid $shadcn-border;
+  border-radius: var(--radius);
+  background: $shadcn-card;
+  color: $shadcn-card-foreground;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card p {
+  margin-bottom: 0;
+  color: $shadcn-muted-foreground;
+}

@@ -1,0 +1,21 @@
+{{ $title := .Title | default site.Title }}
+{{ $description := .Params.description | default site.Params.description }}
+{{ $styles := resources.Get "styles/main.scss" | toCSS (dict "targetPath" "css/site.css") | minify | fingerprint }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ $description }}">
+{{ if site.Params.indexable }}
+  <meta name="robots" content="index, follow">
+{{ else }}
+  <meta name="robots" content="noindex, nofollow">
+{{ end }}
+<title>
+  {{ $title }}
+</title>
+<link rel="icon" type="image/png" href="{{ "/images/brand/sibryl-mark.png" | relURL }}">
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">

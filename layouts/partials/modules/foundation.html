@@ -1,0 +1,27 @@
+<section id="foundation" class="section section--muted">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">
+        {{ .module.eyebrow }}
+      </p>
+      <h2>
+        {{ .module.heading }}
+      </h2>
+      <p class="lede">
+        {{ .module.body }}
+      </p>
+    </div>
+    <div class="card-grid">
+      {{ range .module.items }}
+        <article class="card">
+          <h3>
+            {{ .title }}
+          </h3>
+          <p>
+            {{ .body }}
+          </p>
+        </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,8 @@
+baseURL = "http://localhost:1313/"
+buildDrafts = true
+buildExpired = false
+buildFuture = false
+
+[params]
+  environment = "development"
+  indexable = false

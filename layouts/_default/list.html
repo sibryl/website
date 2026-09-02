@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <section class="page-header">
+    <div class="container prose">
+      <p class="eyebrow">
+        {{ .Section | default "Sibryl" }}
+      </p>
+      <h1>
+        {{ .Title }}
+      </h1>
+      {{ with .Params.description }}
+        <p class="lede">
+          {{ . }}
+        </p>
+      {{ end }}
+      {{ .Content }}
+    </div>
+  </section>
+{{ end }}

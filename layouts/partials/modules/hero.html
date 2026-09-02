@@ -1,0 +1,21 @@
+<section class="hero section">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">
+        {{ .module.eyebrow }}
+      </p>
+      <h1>
+        {{ .module.heading }}
+      </h1>
+      <p class="lede">
+        {{ .module.body }}
+      </p>
+      <div class="action-row">
+        {{ partial "action.html" (dict "id" .module.primaryAction "class" "button") }}
+      </div>
+    </div>
+    <div class="hero__mark" aria-hidden="true">
+      <img src="{{ "/images/brand/sibryl-mark.png" | relURL }}" alt="">
+    </div>
+  </div>
+</section>

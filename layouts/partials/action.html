@@ -1,0 +1,6 @@
+{{ $action := index site.Data.site.actions .id }}
+{{ with $action }}
+  <a class="{{ $.class | default "button" }}" href="{{ .href }}">
+    {{ .label }}
+  </a>
+{{ end }}

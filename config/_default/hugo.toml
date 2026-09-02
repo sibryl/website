@@ -1,0 +1,27 @@
+baseURL = "https://sibryl.ai/"
+title = "Sibryl"
+languageCode = "en-GB"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+enableGitInfo = false
+relativeURLs = false
+canonifyURLs = false
+disableKinds = ["taxonomy", "term"]
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[params]
+  description = "Sibryl helps teams shape and edit exceptional websites."
+  environment = "default"
+  indexable = false
+  locale = "en_GB"
+
+[sitemap]
+  changeFreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5

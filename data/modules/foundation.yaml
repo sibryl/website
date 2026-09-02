@@ -1,0 +1,12 @@
+id: "foundation"
+type: "foundation"
+eyebrow: "Ready to shape"
+heading: "A small, deliberate starting surface."
+body: "Use Sibryl to replace this introduction, add pages, compose modules, and grow the design language. The source stays conventional Hugo throughout."
+items:
+  - title: "Content-led"
+    body: "Pages select modules in front matter, while reusable module content lives in data/modules."
+  - title: "Editor-native"
+    body: "Configuration, content, layouts, styles, static assets, and data are all at this project root."
+  - title: "Shadcn foundation"
+    body: "Semantic colour tokens and reusable buttons, cards, and form treatments give the site a calm, extensible UI vocabulary."

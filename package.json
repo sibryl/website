@@ -1,0 +1,26 @@
+{
+  "name": "@sibryl/website",
+  "version": "0.1.0",
+  "description": "Sibryl's public Hugo website",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "hugo server --environment development --buildDrafts --disableFastRender",
+    "build": "hugo --environment production --gc --minify --destination public",
+    "hugo": "hugo",
+    "postinstall": "node scripts/install-hugo.mjs"
+  },
+  "hugoVersion": "0.147.3",
+  "allowScripts": {
+    "hugo-extended@0.164.0": true
+  },
+  "overrides": {
+    "adm-zip": "0.6.0"
+  },
+  "devDependencies": {
+    "hugo-extended": "0.164.0"
+  }
+}

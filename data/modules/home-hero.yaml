@@ -1,0 +1,6 @@
+id: "home-hero"
+type: "hero"
+eyebrow: "Sibryl"
+heading: "A website foundation made to evolve."
+body: "This is the starting point for sibryl.ai: a self-contained Hugo site with clear content, layout, and design-system seams for Sibryl to edit."
+primaryAction: "explore-foundation"

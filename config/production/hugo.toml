@@ -1,0 +1,8 @@
+baseURL = "https://sibryl.ai/"
+buildDrafts = false
+buildExpired = false
+buildFuture = false
+
+[params]
+  environment = "production"
+  indexable = true
