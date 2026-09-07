@@ -1,0 +1,24 @@
+<section
+  class="section section--how-it-works"
+  id="how-it-works">
+  <div class="container">
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+    <div class="steps-grid">
+      {{ range .module.steps }}
+        <div class="step-card">
+          <div class="step-card__number">{{ .stepNumber }}</div>
+          <h3 class="step-card__title">{{ .title }}</h3>
+          <p class="step-card__body">{{ .body }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

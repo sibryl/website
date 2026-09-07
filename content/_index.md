@@ -1,9 +1,11 @@
 ---
 title: "Sibryl"
-description: "Sibryl helps teams shape and edit exceptional websites."
-date: 2026-09-02
+description: "Create, publish and improve on-brand pages. You direct. Sibryl handles the technical work."
+date: 2026-09-07
 draft: false
 modules:
   - "home-hero"
-  - "foundation"
+  - "how-it-works"
+  - "who-its-for"
+  - "product-example"
 ---

@@ -87,6 +87,156 @@
   color: var(--color-text-secondary);
 }
 
+// Step Card Component (How It Works)
+.step-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card__number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-orange-functional);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.step-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-charcoal);
+  line-height: 1.3;
+}
+
+.step-card__body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+// Persona Card Component (Who It's For)
+.persona-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.persona-card__header {
+  margin-bottom: 1.25rem;
+}
+
+.persona-card__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  color: var(--color-text-charcoal);
+  line-height: 1.2;
+}
+
+.persona-card__focus {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-orange-functional);
+  margin: 0;
+}
+
+.persona-card__body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.persona-card__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  li {
+    font-size: 0.925rem;
+    line-height: 1.5;
+  }
+}
+
+// Grounded Product Example (JENA Walkthrough)
+.example-panel {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-panel);
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+.example-panel__header {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+
+  .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .lede {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-step {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeline-step__marker {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-orange-functional);
+  line-height: 1;
+}
+
+.timeline-step__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.timeline-step__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-charcoal);
+  line-height: 1.3;
+}
+
+.timeline-step__desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
 // Studio Product Demo Component
 .studio-demo {
   background: var(--color-surface-white);

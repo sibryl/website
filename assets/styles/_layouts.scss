@@ -61,7 +61,7 @@
 }
 
 .section {
-  padding-block: clamp(5rem, 12vw, 10rem);
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
 }
 
 .section--muted {
@@ -162,6 +162,25 @@
   margin-bottom: 3rem;
 }
 
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.personas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.workflow-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
 .card-grid {
   display: grid;
   gap: 1rem;
@@ -212,7 +231,10 @@
 
 @media (max-width: 700px) {
   .hero__inner,
-  .card-grid {
+  .card-grid,
+  .steps-grid,
+  .personas-grid,
+  .workflow-timeline {
     grid-template-columns: 1fr;
   }
 

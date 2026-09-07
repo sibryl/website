@@ -1,0 +1,28 @@
+<section
+  class="section section--example"
+  id="product-example">
+  <div class="container">
+    <div class="example-panel">
+      <div class="example-panel__header">
+        {{ with .module.eyebrow }}
+          <p class="eyebrow">{{ . }}</p>
+        {{ end }}
+        <h2>{{ .module.heading }}</h2>
+        {{ with .module.lede }}
+          <p class="lede">{{ . }}</p>
+        {{ end }}
+      </div>
+      <div class="workflow-timeline">
+        {{ range .module.workflowSteps }}
+          <div class="timeline-step">
+            <div class="timeline-step__marker">{{ .stepNumber }}</div>
+            <div class="timeline-step__content">
+              <h3 class="timeline-step__title">{{ .title }}</h3>
+              <p class="timeline-step__desc">{{ .description }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>

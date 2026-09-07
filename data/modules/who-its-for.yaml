@@ -1,0 +1,20 @@
+id: "who-its-for"
+type: "who-its-for"
+eyebrow: "Audience"
+heading: "Who it’s for"
+lede: "Sibryl is built for people who want high-quality web pages without engineering delays."
+personas:
+  - title: "Marketers"
+    focus: "Campaign pages, launches, and offer updates"
+    body: "You need dedicated landing pages for ad campaigns, seasonal promos, or partner announcements. Instead of waiting weeks for developer availability, you direct the page yourself."
+    scenarios:
+      - "Launch a promotional offer in days, not quarters"
+      - "Test dedicated variations for paid acquisition"
+      - "Keep copy and visual assets fresh across campaigns"
+  - title: "Agencies"
+    focus: "Deliver client websites with your existing team"
+    body: "You want to design and ship exceptional client sites without hiring a larger development squad. Direct the build visually and deliver robust, maintainable code."
+    scenarios:
+      - "Turn Figma designs into clean sites faster"
+      - "Give account managers the ability to make client updates"
+      - "Deliver fast, reliable sites clients can rely on"

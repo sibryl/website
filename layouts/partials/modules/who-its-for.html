@@ -1,0 +1,31 @@
+<section
+  class="section section--who-its-for"
+  id="who-its-for">
+  <div class="container">
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+    <div class="personas-grid">
+      {{ range .module.personas }}
+        <div class="persona-card">
+          <div class="persona-card__header">
+            <h3 class="persona-card__title">{{ .title }}</h3>
+            <p class="persona-card__focus">{{ .focus }}</p>
+          </div>
+          <p class="persona-card__body">{{ .body }}</p>
+          <ul class="persona-card__list">
+            {{ range .scenarios }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
