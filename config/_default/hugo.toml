@@ -26,3 +26,6 @@ disableKinds = ["taxonomy", "term"]
   changeFreq = "weekly"
   filename = "sitemap.xml"
   priority = 0.5
+
+[minify.tdewolff.html]
+  keepQuotes = true
