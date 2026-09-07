@@ -8,4 +8,5 @@ modules:
   - "how-it-works"
   - "who-its-for"
   - "product-example"
+  - "early-access"
 ---

@@ -72,6 +72,10 @@
   font-size: 1rem;
 }
 
+.button--full {
+  width: 100%;
+}
+
 .card {
   min-height: 13rem;
   background: var(--color-surface-white);
@@ -662,4 +666,197 @@
     border-right: none;
     border-bottom: 1px solid var(--color-divider);
   }
+}
+
+// Early Access Application Card & Form
+.apply-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-panel);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.apply-card__header {
+  margin-bottom: 2rem;
+}
+
+.apply-card__heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-charcoal);
+  line-height: 1.2;
+}
+
+.apply-card__intro {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.apply-card__notice {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-control);
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.apply-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-charcoal);
+  line-height: 1.3;
+}
+
+.form-required {
+  color: var(--color-orange-functional);
+  font-weight: 700;
+  margin-left: 0.15rem;
+}
+
+.form-helper {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  margin-top: 0.25rem;
+}
+
+.form-control {
+  font-family: inherit;
+  font-size: 1rem; // >= 16px to prevent iOS zoom
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid var(--color-border-control); // #8B857A
+  border-radius: var(--radius-control); // 6px
+  background-color: var(--color-surface-white);
+  color: var(--color-text-charcoal);
+  padding: 0.75rem 1rem;
+  line-height: 1.5;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-text-charcoal);
+    outline-offset: 2px;
+  }
+}
+
+select.form-control {
+  min-height: 44px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2324231F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-control--textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-error {
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-orange-functional); // #C74308
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.has-error {
+  .form-control {
+    border-color: var(--color-orange-functional); // #C74308
+  }
+
+  .form-error {
+    display: block;
+  }
+}
+
+.form-group--checkbox {
+  margin-top: 0.25rem;
+  margin-bottom: 2rem;
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-height: 44px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--color-text-charcoal);
+    user-select: none;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--color-orange-functional);
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-text-charcoal);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.form-actions {
+  margin-top: 0.5rem;
+}
+
+.apply-success {
+  background: var(--color-surface-orange-pale); // #FFF0E5
+  border: 1px solid var(--color-orange-functional); // #C74308
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-orange-selected); // #A53406
+
+  h3 {
+    color: var(--color-text-orange-selected);
+    margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+    font-weight: 800;
+  }
+
+  p {
+    color: var(--color-text-orange-selected);
+    margin: 0;
+    line-height: 1.55;
+  }
+}
+
+.is-hidden {
+  display: none !important;
 }

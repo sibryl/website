@@ -1,0 +1,73 @@
+id: "early-access"
+type: "early-access"
+heading: "What are you working on?"
+intro: "Tell us about your website and what you need next. We’re inviting a small group to help shape Sibryl."
+submitLabel: "Apply for early access"
+confirmation:
+  title: "Application received"
+  message: "Thanks for telling us what you’re working on. We’ll review your application and get in touch if there’s a fit for early access."
+fields:
+  role:
+    label: "Your role"
+    options:
+      - value: ""
+        label: "Select your role..."
+      - value: "marketing-growth"
+        label: "Marketing or growth"
+      - value: "founder-business-owner"
+        label: "Founder or business owner"
+      - value: "agency-owner-team"
+        label: "Agency owner or team member"
+      - value: "freelance-designer"
+        label: "Freelance designer"
+      - value: "other"
+        label: "Other"
+  roleOther:
+    label: "Please describe your role"
+    placeholder: "e.g. Growth consultant"
+  businessName:
+    label: "Business or agency name"
+    placeholder: "Acme Studio"
+  websiteUrl:
+    label: "Website URL"
+    placeholder: "https://example.com"
+    helperText: "Your website, agency site or the client site you’re thinking about."
+  ownership:
+    label: "Whose website do you work on?"
+    options:
+      - value: ""
+        label: "Select one..."
+      - value: "own-business"
+        label: "Our own business website"
+      - value: "clients"
+        label: "Websites for clients"
+      - value: "both"
+        label: "Both"
+  lastChange:
+    label: "Tell us about the last website change you needed. What happened?"
+    placeholder: "We needed a new campaign page for an autumn launch, but it took three weeks to get developer time..."
+    helperText: "What needed changing, how did you get it done, and where did it get difficult?"
+  nextNeed:
+    label: "What page or change do you need next, and who is it for?"
+    placeholder: "We need a comparison table and pricing calculator for our upcoming service tier..."
+    helperText: "Tell us about the project, the audience and any deadline."
+  frequency:
+    label: "How often do you need website changes?"
+    options:
+      - value: ""
+        label: "Select frequency..."
+      - value: "weekly-or-more"
+        label: "Weekly or more"
+      - value: "few-times-month"
+        label: "A few times a month"
+      - value: "about-once-month"
+        label: "About once a month"
+      - value: "less-often"
+        label: "Less often"
+      - value: "not-sure-yet"
+        label: "I’m not sure yet"
+  email:
+    label: "Email address"
+    placeholder: "you@example.com"
+  interviewConsent:
+    label: "Would you be open to a short conversation about your project?"

@@ -4,6 +4,10 @@
   margin-inline: auto;
 }
 
+.container--narrow {
+  max-width: 46rem;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -62,10 +66,19 @@
 
 .section {
   padding-block: clamp(4.5rem, 9vw, 7.5rem);
+
+  &[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }
 
 .section--muted {
   background: var(--color-surface-subtle);
+}
+
+.section--apply {
+  background: var(--color-canvas);
+  padding-block: clamp(4rem, 8vw, 7rem);
 }
 
 .hero {
