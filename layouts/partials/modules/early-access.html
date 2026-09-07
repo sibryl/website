@@ -1,6 +1,6 @@
 {{/*
   Module: Early Access Application Form
-  Purpose: Project intake form collecting context across fields A through I
+  Purpose: Project intake form via official Tally embed
   Data Source: .Site.Data.modules.early-access
 */}}
 
@@ -9,496 +9,56 @@
   id="apply">
   <div class="container container--narrow">
     <div class="apply-card">
-      <div class="apply-card__header">
-        <h2 class="apply-card__heading">{{ .module.heading }}</h2>
-        <p class="apply-card__intro">{{ .module.intro }}</p>
+      <!-- Accessible heading for document structure (visually hidden to avoid double header with Tally) -->
+      <h2 class="visually-hidden">{{ .module.heading | default "What are you working on?" }}</h2>
+
+      <!-- Official Tally Inline Embed -->
+      <div class="apply-card__embed">
+        <iframe
+          data-tally-src="https://tally.so/embed/OD2BXk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="350"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Sibryl early access"
+          style="border: 0; min-height: 480px; width: 100%;">
+        </iframe>
       </div>
 
-      <!-- 
-        BACKEND INTEGRATION:
-        No production endpoint is currently configured.
-        To connect a live backend endpoint (e.g. Formspree, Basin, Zapier webhook, or API route):
-        1. Set the 'action' attribute on #early-access-form (e.g. action="https://formspree.io/f/your-form-id").
-        2. Set method="POST" on the form.
-        3. Replace the setTimeout simulation in the script below with a fetch() call to your endpoint.
-      -->
-      <div
-        class="apply-card__notice"
-        role="note">
-        <span>Early access preview: applications currently run through a preview validation flow. No backend endpoint is connected yet.</span>
-      </div>
-
-      <div
-        id="apply-success-message"
-        class="apply-success is-hidden"
-        role="alert"
-        aria-live="polite"
-        tabindex="-1">
-        <h3>{{ .module.confirmation.title }}</h3>
-        <p>{{ .module.confirmation.message }}</p>
-      </div>
-
-      <form
-        id="early-access-form"
-        class="apply-form"
-        novalidate>
-        <!-- Field A: Role -->
-        <div
-          class="form-group"
-          id="group-role">
-          <label
-            for="field-role"
-            class="form-label">
-            {{ .module.fields.role.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <select
-            id="field-role"
-            name="role"
-            class="form-control"
-            required>
-            {{ range .module.fields.role.options }}
-              <option value="{{ .value }}">{{ .label }}</option>
-            {{ end }}
-          </select>
-          <div
-            class="form-error"
-            id="error-role">Please select your role.</div>
-        </div>
-
-        <!-- Field A (conditional): Other role -->
-        <div
-          class="form-group is-hidden"
-          id="group-role-other">
-          <label
-            for="field-role-other"
-            class="form-label">
-            {{ .module.fields.roleOther.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="text"
-            id="field-role-other"
-            name="roleOther"
-            class="form-control"
-            placeholder="{{ .module.fields.roleOther.placeholder }}">
-          <div
-            class="form-error"
-            id="error-role-other">Please describe your role.</div>
-        </div>
-
-        <!-- Field B: Business or agency name -->
-        <div
-          class="form-group"
-          id="group-business-name">
-          <label
-            for="field-business-name"
-            class="form-label">
-            {{ .module.fields.businessName.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="text"
-            id="field-business-name"
-            name="businessName"
-            class="form-control"
-            placeholder="{{ .module.fields.businessName.placeholder }}"
-            required>
-          <div
-            class="form-error"
-            id="error-business-name">Please enter your business or agency name.</div>
-        </div>
-
-        <!-- Field C: Website URL (optional) -->
-        <div
-          class="form-group"
-          id="group-website-url">
-          <label
-            for="field-website-url"
-            class="form-label">
-            {{ .module.fields.websiteUrl.label }}
-          </label>
-          <input
-            type="url"
-            id="field-website-url"
-            name="websiteUrl"
-            class="form-control"
-            placeholder="{{ .module.fields.websiteUrl.placeholder }}"
-            {{ with .module.fields.websiteUrl.helperText }}aria-describedby="helper-website-url"{{ end }}>
-          {{ with .module.fields.websiteUrl.helperText }}
-            <div class="form-helper" id="helper-website-url">{{ . }}</div>
-          {{ end }}
-          <div
-            class="form-error"
-            id="error-website-url">Please enter a valid website URL starting with http:// or https://</div>
-        </div>
-
-        <!-- Field D: Whose website do you work on? -->
-        <div
-          class="form-group"
-          id="group-ownership">
-          <label
-            for="field-ownership"
-            class="form-label">
-            {{ .module.fields.ownership.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <select
-            id="field-ownership"
-            name="ownership"
-            class="form-control"
-            required>
-            {{ range .module.fields.ownership.options }}
-              <option value="{{ .value }}">{{ .label }}</option>
-            {{ end }}
-          </select>
-          <div
-            class="form-error"
-            id="error-ownership">Please tell us whose website you work on.</div>
-        </div>
-
-        <!-- Field E: Last website change -->
-        <div
-          class="form-group"
-          id="group-last-change">
-          <label
-            for="field-last-change"
-            class="form-label">
-            {{ .module.fields.lastChange.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <textarea
-            id="field-last-change"
-            name="lastChange"
-            class="form-control form-control--textarea"
-            rows="3"
-            placeholder="{{ .module.fields.lastChange.placeholder }}"
-            required
-            {{ with .module.fields.lastChange.helperText }}aria-describedby="helper-last-change"{{ end }}></textarea>
-          {{ with .module.fields.lastChange.helperText }}
-            <div class="form-helper" id="helper-last-change">{{ . }}</div>
-          {{ end }}
-          <div
-            class="form-error"
-            id="error-last-change">Please tell us about your last website change.</div>
-        </div>
-
-        <!-- Field F: Next page or change needed -->
-        <div
-          class="form-group"
-          id="group-next-need">
-          <label
-            for="field-next-need"
-            class="form-label">
-            {{ .module.fields.nextNeed.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <textarea
-            id="field-next-need"
-            name="nextNeed"
-            class="form-control form-control--textarea"
-            rows="3"
-            placeholder="{{ .module.fields.nextNeed.placeholder }}"
-            required
-            {{ with .module.fields.nextNeed.helperText }}aria-describedby="helper-next-need"{{ end }}></textarea>
-          {{ with .module.fields.nextNeed.helperText }}
-            <div class="form-helper" id="helper-next-need">{{ . }}</div>
-          {{ end }}
-          <div
-            class="form-error"
-            id="error-next-need">Please tell us what change or page you need next.</div>
-        </div>
-
-        <!-- Field G: Frequency of website changes -->
-        <div
-          class="form-group"
-          id="group-frequency">
-          <label
-            for="field-frequency"
-            class="form-label">
-            {{ .module.fields.frequency.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <select
-            id="field-frequency"
-            name="frequency"
-            class="form-control"
-            required>
-            {{ range .module.fields.frequency.options }}
-              <option value="{{ .value }}">{{ .label }}</option>
-            {{ end }}
-          </select>
-          <div
-            class="form-error"
-            id="error-frequency">Please select how often you need website changes.</div>
-        </div>
-
-        <!-- Field H: Email address -->
-        <div
-          class="form-group"
-          id="group-email">
-          <label
-            for="field-email"
-            class="form-label">
-            {{ .module.fields.email.label }} <span class="form-required" aria-hidden="true">*</span>
-          </label>
-          <input
-            type="email"
-            id="field-email"
-            name="email"
-            class="form-control"
-            placeholder="{{ .module.fields.email.placeholder }}"
-            required>
-          <div
-            class="form-error"
-            id="error-email">Please enter a valid email address.</div>
-        </div>
-
-        <!-- Field I: Interview consent (checkbox) -->
-        <div
-          class="form-group form-group--checkbox"
-          id="group-interview">
-          <label
-            for="field-interview"
-            class="checkbox-label">
-            <input
-              type="checkbox"
-              id="field-interview"
-              name="interviewConsent"
-              value="yes">
-            <span>{{ .module.fields.interviewConsent.label }}</span>
-          </label>
-        </div>
-
-        <div class="form-actions">
-          <button
-            type="submit"
-            id="btn-submit"
-            class="button button--primary button--lg button--full">
-            <span class="btn-text">{{ .module.submitLabel }}</span>
-            <span class="btn-spinner is-hidden" aria-hidden="true">Submitting...</span>
-          </button>
-        </div>
-      </form>
+      <!-- New Tab Fallback Link -->
+      <p class="apply-card__fallback">
+        Having trouble with the form?
+        <a
+          href="https://tally.so/r/OD2BXk"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open form in a new tab &rarr;
+        </a>
+      </p>
     </div>
   </div>
 </section>
 
+<!-- Official Tally Embed Loader -->
 <script>
-  (function() {
-    var form = document.getElementById('early-access-form');
-    if (!form) return;
-
-    var successMessage = document.getElementById('apply-success-message');
-    var submitBtn = document.getElementById('btn-submit');
-    var btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
-    var btnSpinner = submitBtn ? submitBtn.querySelector('.btn-spinner') : null;
-
-    var roleSelect = document.getElementById('field-role');
-    var roleOtherGroup = document.getElementById('group-role-other');
-    var roleOtherInput = document.getElementById('field-role-other');
-
-    var hasErrors = false;
-    var firstInvalidControl = null;
-
-    function setError(groupId) {
-      var group = document.getElementById(groupId);
-      if (group) {
-        group.classList.add('has-error');
-        var control = group.querySelector('.form-control');
-        var errorEl = group.querySelector('.form-error');
-        if (control) {
-          control.setAttribute('aria-invalid', 'true');
-          if (errorEl && errorEl.id) {
-            var helperEl = group.querySelector('.form-helper');
-            if (helperEl && helperEl.id) {
-              control.setAttribute('aria-describedby', helperEl.id + ' ' + errorEl.id);
-            } else {
-              control.setAttribute('aria-describedby', errorEl.id);
-            }
-          }
-          if (!firstInvalidControl) {
-            firstInvalidControl = control;
-          }
-        }
-      }
-      hasErrors = true;
-    }
-
-    function clearError(groupId) {
-      var group = document.getElementById(groupId);
-      if (group) {
-        group.classList.remove('has-error');
-        var control = group.querySelector('.form-control');
-        if (control) {
-          control.removeAttribute('aria-invalid');
-          var helperEl = group.querySelector('.form-helper');
-          if (helperEl && helperEl.id) {
-            control.setAttribute('aria-describedby', helperEl.id);
-          } else {
-            control.removeAttribute('aria-describedby');
-          }
-        }
-      }
-    }
-
-    // Conditional reveal for Field A: Other
-    if (roleSelect && roleOtherGroup && roleOtherInput) {
-      roleSelect.addEventListener('change', function() {
-        if (this.value === 'other') {
-          roleOtherGroup.classList.remove('is-hidden');
-          roleOtherInput.focus();
-        } else {
-          roleOtherGroup.classList.add('is-hidden');
-          roleOtherInput.value = '';
-          clearError('group-role-other');
-        }
+  var d = document, w = "https://tally.so/widgets/embed.js", v = function() {
+    if (typeof Tally !== "undefined") {
+      Tally.loadEmbeds();
+    } else {
+      d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+        e.src = e.dataset.tallySrc;
       });
     }
-
-    // Clear error on input / change
-    var groups = form.querySelectorAll('.form-group');
-    groups.forEach(function(group) {
-      var control = group.querySelector('.form-control, input[type="checkbox"]');
-      if (!control) return;
-      var eventType = (control.tagName === 'SELECT' || control.type === 'checkbox') ? 'change' : 'input';
-      control.addEventListener(eventType, function() {
-        clearError(group.id);
-      });
-    });
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var urlRegex = /^https?:\/\/[^\s$.?#].[^\s]*$/i;
-    var isSubmitting = false;
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (isSubmitting) return;
-
-      hasErrors = false;
-      firstInvalidControl = null;
-
-      // 1. Role validation
-      var roleVal = roleSelect ? roleSelect.value.trim() : '';
-      if (!roleVal) {
-        setError('group-role');
-      } else {
-        clearError('group-role');
-        if (roleVal === 'other') {
-          var otherVal = roleOtherInput ? roleOtherInput.value.trim() : '';
-          if (!otherVal) {
-            setError('group-role-other');
-          } else {
-            clearError('group-role-other');
-          }
-        }
-      }
-
-      // 2. Business name validation
-      var businessInput = document.getElementById('field-business-name');
-      var businessVal = businessInput ? businessInput.value.trim() : '';
-      if (!businessVal) {
-        setError('group-business-name');
-      } else {
-        clearError('group-business-name');
-      }
-
-      // 3. Website URL validation (optional, but must be valid URL if filled)
-      var urlInput = document.getElementById('field-website-url');
-      var urlVal = urlInput ? urlInput.value.trim() : '';
-      if (urlVal && !urlRegex.test(urlVal)) {
-        setError('group-website-url');
-      } else {
-        clearError('group-website-url');
-      }
-
-      // 4. Ownership validation
-      var ownershipSelect = document.getElementById('field-ownership');
-      var ownershipVal = ownershipSelect ? ownershipSelect.value.trim() : '';
-      if (!ownershipVal) {
-        setError('group-ownership');
-      } else {
-        clearError('group-ownership');
-      }
-
-      // 5. Last change validation
-      var lastChangeInput = document.getElementById('field-last-change');
-      var lastChangeVal = lastChangeInput ? lastChangeInput.value.trim() : '';
-      if (!lastChangeVal) {
-        setError('group-last-change');
-      } else {
-        clearError('group-last-change');
-      }
-
-      // 6. Next need validation
-      var nextNeedInput = document.getElementById('field-next-need');
-      var nextNeedVal = nextNeedInput ? nextNeedInput.value.trim() : '';
-      if (!nextNeedVal) {
-        setError('group-next-need');
-      } else {
-        clearError('group-next-need');
-      }
-
-      // 7. Frequency validation
-      var frequencySelect = document.getElementById('field-frequency');
-      var frequencyVal = frequencySelect ? frequencySelect.value.trim() : '';
-      if (!frequencyVal) {
-        setError('group-frequency');
-      } else {
-        clearError('group-frequency');
-      }
-
-      // 8. Email validation
-      var emailInput = document.getElementById('field-email');
-      var emailVal = emailInput ? emailInput.value.trim() : '';
-      if (!emailVal || !emailRegex.test(emailVal)) {
-        setError('group-email');
-      } else {
-        clearError('group-email');
-      }
-
-      if (hasErrors) {
-        if (firstInvalidControl) {
-          firstInvalidControl.focus();
-        }
-        return;
-      }
-
-      // Prevent duplicate submission and set loading state
-      isSubmitting = true;
-      if (submitBtn) submitBtn.disabled = true;
-      if (btnText) btnText.classList.add('is-hidden');
-      if (btnSpinner) btnSpinner.classList.remove('is-hidden');
-
-      /*
-        BACKEND SUBMISSION HOOK:
-        To connect a live backend endpoint, replace this simulated setTimeout block with:
-        
-        fetch(form.action || '/api/early-access', {
-          method: form.method || 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(function(response) {
-          if (!response.ok) throw new Error('Submission failed');
-          return response.json();
-        })
-        .then(function() {
-          showConfirmation();
-        })
-        .catch(function(err) {
-          // Handle submission error without leaking sensitive user data
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.classList.remove('is-hidden');
-          if (btnSpinner) btnSpinner.classList.add('is-hidden');
-          isSubmitting = false;
-        });
-
-        NOTE: Sensitive customer email addresses and form inputs are NEVER
-        logged to the browser console or analytics.
-      */
-      setTimeout(function() {
-        form.classList.add('is-hidden');
-        if (successMessage) {
-          successMessage.classList.remove('is-hidden');
-          successMessage.focus();
-          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        isSubmitting = false;
-      }, 600);
-    });
-  })();
+  };
+  if (typeof Tally !== "undefined") {
+    v();
+  } else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s = d.createElement("script");
+    s.src = w;
+    s.onload = v;
+    s.onerror = v;
+    d.body.appendChild(s);
+  }
 </script>

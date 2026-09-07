@@ -61,7 +61,7 @@
   padding-block: clamp(3rem, 6vw, 5rem);
 
   &[id] {
-    scroll-margin-top: 4.5rem;
+    scroll-margin-top: 5.5rem;
   }
 }
 
@@ -72,6 +72,7 @@
 .section--apply {
   background: var(--color-canvas);
   padding-block: clamp(3rem, 6vw, 5rem);
+  scroll-margin-top: 5.5rem;
 }
 
 .hero {
