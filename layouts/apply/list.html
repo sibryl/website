@@ -1,12 +1,56 @@
 {{ define "main" }}
   <div class="apply-page">
     <div class="apply-container">
-      <!-- Accessible heading for screen readers; visually rendered once inside Tally form -->
+      <!-- Accessible heading for document structure (visually hidden to avoid double header with Tally) -->
       <h1 class="visually-hidden">{{ .Title | default "Apply for early access" }}</h1>
 
+      <!-- Official Tally Inline Embed with Dynamic Height -->
       <div class="apply-embed">
-        {{ block "apply-form" . }}{{ end }}
+        <iframe
+          data-tally-src="https://tally.so/embed/OD2BXk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="216"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Sibryl early access"
+          style="border: 0; width: 100%;">
+        </iframe>
       </div>
+
+      <!-- New Tab Fallback Link -->
+      <p class="apply-fallback">
+        Having trouble with the form?
+        <a
+          href="https://tally.so/r/OD2BXk"
+          target="_blank"
+          rel="noopener noreferrer">
+          Open form in a new tab &rarr;
+        </a>
+      </p>
     </div>
   </div>
+
+  <!-- Official Tally Embed Loader -->
+  <script>
+    var d = document, w = "https://tally.so/widgets/embed.js", v = function() {
+      if (typeof Tally !== "undefined") {
+        Tally.loadEmbeds();
+      } else {
+        d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+          e.src = e.dataset.tallySrc;
+        });
+      }
+    };
+    if (typeof Tally !== "undefined") {
+      v();
+    } else if (d.querySelector('script[src="' + w + '"]') == null) {
+      var s = d.createElement("script");
+      s.src = w;
+      s.onload = v;
+      s.onerror = v;
+      d.body.appendChild(s);
+    }
+  </script>
 {{ end }}
