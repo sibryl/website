@@ -9,27 +9,26 @@ primaryAction:
 secondaryAction:
   label: "See how it works"
   href: "#how-it-works"
-demo:
-  label: "Illustrative product preview"
-  chat:
-    title: "Project Chat"
-    userMessage: "Create a campaign page for salon clients booking their first appointment. Match our booking flow."
-    assistantMessage: "Campaign landing page ready with your salon gallery, treatment list, and deposit booking. Live preview updated on the right."
-    status: "Ready for review"
-    inputPlaceholder: "Ask Sibryl for adjustments..."
-  preview:
-    url: "jena.so/preview"
-    status: "Live"
-    brandName: "JENA"
-    tagline: "BUILT FOR HOME SALONS"
-    headline: "Become fully booked without paying new client fees."
-    subhead: "Free setup and migration from your current system."
-    tags:
-      - "Nails"
-      - "Styling"
-      - "Wellness"
-    cardTitle: "Signature Styling"
-    cardMeta: "Deposit booking active"
-    cardService: "Full Balayage & Cut"
-    cardSlots: "Today: 2 slots left"
-    ctaLabel: "Try the app for free"
+benefits:
+  - id: "on-brand"
+    title: "On-brand by default"
+    description: "Pages built from your brand, every time."
+  - id: "built-to-launch"
+    title: "Built to launch"
+    description: "Sibryl handles the technical work."
+  - id: "made-for-marketers"
+    title: "Made for marketers"
+    description: "Move fast. Fewer handoffs."
+showcase:
+  browserUrl: "jena.so / Campaign page"
+  header:
+    brand: "JENA"
+    cta: "Try JENA free"
+  page:
+    headline: "More time for the work you love."
+    body: "JENA helps solo hair and beauty businesses run their business, not their admin."
+    cta: "Explore JENA"
+conversation:
+  label: "Illustrative Studio conversation"
+  userMessage: "Make a version of this page for our new campaign."
+  sibrylMessage: "The draft is ready. Take a look before publishing."

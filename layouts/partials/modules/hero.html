@@ -26,110 +26,113 @@
           </a>
         {{ end }}
       </div>
+
+      <div class="hero-benefits">
+        {{ range .module.benefits }}
+          <div class="hero-benefit">
+            {{ if eq .id "on-brand" }}
+              <svg class="hero-benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v18M3 12h18M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+              </svg>
+            {{ else if eq .id "built-to-launch" }}
+              <svg class="hero-benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            {{ else }}
+              <svg class="hero-benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            {{ end }}
+            <div class="hero-benefit__content">
+              <span class="hero-benefit__title">{{ .title }}</span>
+              <span class="hero-benefit__desc">{{ .description }}</span>
+            </div>
+          </div>
+        {{ end }}
+      </div>
     </div>
 
     <div class="hero__visual">
-      <div class="studio-demo" aria-label="Sibryl Studio interface preview">
-        <div class="studio-demo__header">
-          <div class="studio-demo__dots" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
+      <div class="showcase-wrap">
+        <!-- Radiating orange accent strokes near top right -->
+        <svg class="showcase-accents" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M26 6L28 14" stroke="#FF7900" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M38 12L32 18" stroke="#FF7900" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M42 24L34 24" stroke="#FF7900" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+
+        <!-- Quiet Browser Frame -->
+        <div class="customer-browser" aria-label="Customer website showcase">
+          <div class="customer-browser__bar">
+            <div class="customer-browser__dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="customer-browser__address">
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M4.5 6V4.5a3.5 3.5 0 0 1 7 0V6h.5a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h.5zm1.5 0h4V4.5a2 2 0 1 0-4 0V6z"/>
+              </svg>
+              <span>{{ .module.showcase.browserUrl }}</span>
+            </div>
+            <div class="customer-browser__spacer" aria-hidden="true"></div>
           </div>
-          <span class="studio-demo__title">Sibryl Studio</span>
-          <span class="studio-demo__badge">{{ .module.demo.label }}</span>
+
+          <!-- Light JENA Landing Page Design -->
+          <div class="jena-light-page">
+            <!-- Charcoal-purple header -->
+            <div class="jena-light-page__header">
+              <span class="jena-light-page__logo">{{ .module.showcase.header.brand }}</span>
+              <span class="jena-light-page__pill">{{ .module.showcase.header.cta }}</span>
+            </div>
+
+            <!-- Body content -->
+            <div class="jena-light-page__body">
+              <div class="jena-light-page__content">
+                <h2 class="jena-light-page__headline">{{ .module.showcase.page.headline }}</h2>
+                <p class="jena-light-page__copy">{{ .module.showcase.page.body }}</p>
+                <div class="jena-light-page__action">
+                  <span class="jena-light-page__btn">{{ .module.showcase.page.cta }}</span>
+                </div>
+              </div>
+              <div class="jena-light-page__visual">
+                <img
+                  class="jena-light-page__photo"
+                  src="/images/salon-owner.png"
+                  alt="Salon owner styling client hair"
+                  loading="eager"
+                  width="360"
+                  height="360">
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="studio-demo__body">
-          <!-- Left: Studio Chat -->
-          <div class="studio-chat">
-            <div class="studio-chat__header">
-              <span class="studio-chat__indicator" aria-hidden="true"></span>
-              <span class="studio-chat__title">{{ .module.demo.chat.title }}</span>
-            </div>
-            <div class="studio-chat__messages">
-              <div class="chat-bubble chat-bubble--user">
-                <p>{{ .module.demo.chat.userMessage }}</p>
+        <!-- Floating conversation card -->
+        <div class="floating-convo" aria-label="Studio conversation preview">
+          <div class="floating-convo__inner">
+            <p class="floating-convo__label">{{ .module.conversation.label }}</p>
+            
+            <div class="floating-convo__msg floating-convo__msg--user">
+              <div class="floating-convo__avatar floating-convo__avatar--orange" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/></svg>
               </div>
-              <div class="chat-bubble chat-bubble--assistant">
-                <p>{{ .module.demo.chat.assistantMessage }}</p>
-                <div class="chat-bubble__meta">
-                  <span class="badge-status">
-                    <span class="badge-status__dot" aria-hidden="true"></span>
-                    {{ .module.demo.chat.status }}
-                  </span>
-                </div>
-              </div>
+              <p class="floating-convo__text">{{ .module.conversation.userMessage }}</p>
             </div>
-            <div class="studio-chat__prompt" aria-hidden="true">
-              <span class="studio-chat__prompt-icon"></span>
-              <span>{{ .module.demo.chat.inputPlaceholder }}</span>
+
+            <div class="floating-convo__msg floating-convo__msg--assistant">
+              <div class="floating-convo__avatar floating-convo__avatar--dark" aria-hidden="true">S</div>
+              <p class="floating-convo__text">{{ .module.conversation.sibrylMessage }}</p>
             </div>
           </div>
 
-          <!-- Right: JENA Website Preview -->
-          <div class="studio-preview">
-            <div class="preview-bar">
-              <div class="preview-bar__address">
-                <svg
-                  class="preview-bar__lock"
-                  viewBox="0 0 16 16"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  aria-hidden="true">
-                  <path d="M4.5 6V4.5a3.5 3.5 0 0 1 7 0V6h.5a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h.5zm1.5 0h4V4.5a2 2 0 1 0-4 0V6z"/>
-                </svg>
-                <span class="preview-bar__url">{{ .module.demo.preview.url }}</span>
-              </div>
-              <span class="preview-bar__pill">{{ .module.demo.preview.status }}</span>
-            </div>
-            <div class="preview-canvas">
-              <div class="jena-mockup">
-                <div class="jena-mockup__nav">
-                  <span class="jena-mockup__logo">{{ .module.demo.preview.brandName }}</span>
-                  <span class="jena-mockup__nav-cta">Book a chat</span>
-                </div>
-                <div class="jena-mockup__hero">
-                  <div class="jena-mockup__tag">{{ .module.demo.preview.tagline }}</div>
-                  <h2 class="jena-mockup__title">
-                    {{ .module.demo.preview.headline }}
-                  </h2>
-                  <p class="jena-mockup__text">
-                    {{ .module.demo.preview.subhead }}
-                  </p>
-
-                  <div class="jena-mockup__tags">
-                    {{ range .module.demo.preview.tags }}
-                      <span class="jena-mockup__pill">{{ . }}</span>
-                    {{ end }}
-                  </div>
-
-                  <div class="jena-mockup__card">
-                    <div class="jena-mockup__card-header">
-                      <span class="jena-mockup__card-name">{{ .module.demo.preview.cardTitle }}</span>
-                      <span class="jena-mockup__card-badge">{{ .module.demo.preview.cardMeta }}</span>
-                    </div>
-                    <div class="jena-mockup__card-body">
-                      <div class="jena-mockup__card-visual" aria-hidden="true">
-                        <div class="jena-mockup__card-thumb"></div>
-                        <div class="jena-mockup__card-details">
-                          <span class="jena-mockup__card-service">{{ .module.demo.preview.cardService }}</span>
-                          <span class="jena-mockup__card-slot">{{ .module.demo.preview.cardSlots }}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="jena-mockup__action">
-                    <span class="jena-mockup__button">
-                      {{ .module.demo.preview.ctaLabel }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Slender orange looping arrow curling upward toward customer page -->
+          <svg class="floating-convo__arrow" width="54" height="64" viewBox="0 0 54 64" fill="none" aria-hidden="true">
+            <path d="M12 56 C 2 34, 22 20, 36 28 C 44 32, 42 16, 44 6" stroke="#FF7900" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M38 12 L44 6 L49 13" stroke="#FF7900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
         </div>
       </div>
     </div>
