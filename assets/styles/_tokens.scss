@@ -1,44 +1,47 @@
-$shadcn-background: unquote("hsl(var(--background))");
-$shadcn-foreground: unquote("hsl(var(--foreground))");
-$shadcn-card: unquote("hsl(var(--card))");
-$shadcn-card-foreground: unquote("hsl(var(--card-foreground))");
-$shadcn-muted: unquote("hsl(var(--muted))");
-$shadcn-muted-foreground: unquote("hsl(var(--muted-foreground))");
-$shadcn-border: unquote("hsl(var(--border))");
-$shadcn-primary: unquote("hsl(var(--primary))");
-$shadcn-primary-foreground: unquote("hsl(var(--primary-foreground))");
-$shadcn-ring: unquote("hsl(var(--ring))");
+// Warm Studio Palette
+$canvas-warm: #FAF8F3;
+$surface-white: #FFFFFF;
+$surface-subtle: #F1EEE7;
+$text-charcoal: #24231F;
+$text-secondary: #68655E;
+$divider-subtle: #DEDAD2;
+$border-control: #8B857A;
 
+// Brand & Functional Oranges
+$brand-orange-vivid: #FF7900;       // Vivid accent: badges, decorative details only
+$brand-orange-functional: #C74308;  // Functional primary button with white text
+$brand-orange-hover: #AD3605;       // Hover state
+$brand-orange-pressed: #8F2D06;     // Pressed state
+$surface-orange-pale: #FFF0E5;      // Selected surface
+$text-orange-selected: #A53406;     // Selected text
+
+// CSS Custom Properties
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 262 83% 58%;
-  --primary: 262 83% 58%;
-  --primary-foreground: 0 0% 100%;
-  --radius: 0.75rem;
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.04);
-  --shadow-lg: 0 20px 50px rgb(48 0 210 / 0.12);
-}
+  --color-canvas: #{$canvas-warm};
+  --color-surface-white: #{$surface-white};
+  --color-surface-subtle: #{$surface-subtle};
+  --color-text-charcoal: #{$text-charcoal};
+  --color-text-secondary: #{$text-secondary};
+  --color-divider: #{$divider-subtle};
+  --color-border-control: #{$border-control};
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 263 89% 72%;
-    --primary: 263 89% 72%;
-    --primary-foreground: 240 10% 3.9%;
-  }
+  --color-orange-vivid: #{$brand-orange-vivid};
+  --color-orange-functional: #{$brand-orange-functional};
+  --color-orange-hover: #{$brand-orange-hover};
+  --color-orange-pressed: #{$brand-orange-pressed};
+  --color-surface-orange-pale: #{$surface-orange-pale};
+  --color-text-orange-selected: #{$text-orange-selected};
+
+  // Sizing & Radii
+  --radius-control: 6px;
+  --radius-card: 12px;
+  --radius-panel: 16px;
+
+  // Typography
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(36, 35, 31, 0.05);
+  --shadow-md: 0 8px 24px rgba(36, 35, 31, 0.08);
+  --shadow-lg: 0 20px 48px rgba(36, 35, 31, 0.12);
 }

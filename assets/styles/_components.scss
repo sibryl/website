@@ -1,35 +1,82 @@
 .button {
   display: inline-flex;
-  min-height: 2.75rem;
+  min-height: 44px;
+  min-width: 44px;
   align-items: center;
   justify-content: center;
-  border-radius: calc(var(--radius) - 0.15rem);
-  background: $shadcn-primary;
-  color: $shadcn-primary-foreground;
-  padding: 0.7rem 1rem;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-control);
+  background: var(--color-orange-functional);
+  color: #ffffff;
+  border: 1px solid transparent;
+  padding: 0.625rem 1.25rem;
+  font-family: inherit;
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 600;
+  line-height: 1.2;
   text-decoration: none;
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+
+  &:hover {
+    background: var(--color-orange-hover);
+    color: #ffffff;
+  }
+
+  &:active {
+    background: var(--color-orange-pressed);
+    color: #ffffff;
+  }
 }
 
-.button:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+.button--primary {
+  background: var(--color-orange-functional);
+  color: #ffffff;
+  border-color: transparent;
+
+  &:hover {
+    background: var(--color-orange-hover);
+    color: #ffffff;
+  }
+
+  &:active {
+    background: var(--color-orange-pressed);
+    color: #ffffff;
+  }
+}
+
+.button--secondary {
+  background: transparent;
+  border-color: var(--color-border-control);
+  color: var(--color-text-charcoal);
+
+  &:hover {
+    background: var(--color-surface-subtle);
+    color: var(--color-text-charcoal);
+  }
+
+  &:active {
+    background: var(--color-divider);
+    color: var(--color-text-charcoal);
+  }
+}
+
+.button--sm {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
 }
 
 .card {
   min-height: 13rem;
-  border: 1px solid $shadcn-border;
-  border-radius: var(--radius);
-  background: $shadcn-card;
-  color: $shadcn-card-foreground;
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-card);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  color: var(--color-text-charcoal);
 }
 
 .card p {
   margin-bottom: 0;
-  color: $shadcn-muted-foreground;
+  color: var(--color-text-secondary);
 }

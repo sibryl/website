@@ -1,17 +1,14 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="{{ "/" | relURL }}" aria-label="Sibryl home">
-      <img class="brand__mark" src="{{ "/images/brand/sibryl-mark.png" | relURL }}" alt="">
-      <span>
-        Sibryl
-      </span>
+    <a class="brand-wordmark" href="{{ "/" | relURL }}" aria-label="Sibryl home">
+      Sibryl
     </a>
     {{ with site.Data.site.navigation.primary }}
-      <nav aria-label="Primary navigation">
+      <nav class="site-nav" aria-label="Primary navigation">
         <ul class="nav-list">
           {{ range . }}
             <li>
-              <a href="{{ .href }}">
+              <a href="{{ .href }}" class="{{ if .isCta }}button button--primary button--sm{{ else }}nav-link{{ end }}">
                 {{ .label }}
               </a>
             </li>

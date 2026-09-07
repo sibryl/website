@@ -8,8 +8,8 @@ html {
 
 body {
   margin: 0;
-  background: $shadcn-background;
-  color: $shadcn-foreground;
+  background: var(--color-canvas);
+  color: var(--color-text-charcoal);
   font-family: var(--font-sans);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
@@ -28,32 +28,43 @@ a {
 h1,
 h2,
 h3,
+h4,
 p {
   margin-top: 0;
 }
 
 h1,
 h2,
-h3 {
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+h3,
+h4 {
+  color: var(--color-text-charcoal);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 h1 {
-  font-size: clamp(3rem, 7vw, 6.25rem);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 h3 {
   font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 :focus-visible {
-  outline: 3px solid $shadcn-ring;
-  outline-offset: 3px;
+  outline: 2px solid var(--color-text-charcoal);
+  outline-offset: 2px;
 }
 
 .skip-link {
@@ -62,13 +73,25 @@ h3 {
   top: 1rem;
   left: 1rem;
   transform: translateY(-200%);
-  border-radius: calc(var(--radius) / 2);
-  background: $shadcn-primary;
-  color: $shadcn-primary-foreground;
+  border-radius: var(--radius-control);
+  background: var(--color-orange-functional);
+  color: #ffffff;
   padding: 0.75rem 1rem;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

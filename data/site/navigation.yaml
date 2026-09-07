@@ -1,4 +1,11 @@
 primary:
-  - id: "github"
-    label: "GitHub"
-    href: "https://github.com/sibryl"
+  - id: "how-it-works"
+    label: "How it works"
+    href: "#how-it-works"
+  - id: "who-its-for"
+    label: "Who it’s for"
+    href: "#who-its-for"
+  - id: "apply"
+    label: "Apply for early access"
+    href: "#apply"
+    isCta: true
