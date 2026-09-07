@@ -120,9 +120,10 @@
             id="field-website-url"
             name="websiteUrl"
             class="form-control"
-            placeholder="{{ .module.fields.websiteUrl.placeholder }}">
+            placeholder="{{ .module.fields.websiteUrl.placeholder }}"
+            {{ with .module.fields.websiteUrl.helperText }}aria-describedby="helper-website-url"{{ end }}>
           {{ with .module.fields.websiteUrl.helperText }}
-            <div class="form-helper">{{ . }}</div>
+            <div class="form-helper" id="helper-website-url">{{ . }}</div>
           {{ end }}
           <div
             class="form-error"
@@ -167,9 +168,10 @@
             class="form-control form-control--textarea"
             rows="3"
             placeholder="{{ .module.fields.lastChange.placeholder }}"
-            required></textarea>
+            required
+            {{ with .module.fields.lastChange.helperText }}aria-describedby="helper-last-change"{{ end }}></textarea>
           {{ with .module.fields.lastChange.helperText }}
-            <div class="form-helper">{{ . }}</div>
+            <div class="form-helper" id="helper-last-change">{{ . }}</div>
           {{ end }}
           <div
             class="form-error"
@@ -191,9 +193,10 @@
             class="form-control form-control--textarea"
             rows="3"
             placeholder="{{ .module.fields.nextNeed.placeholder }}"
-            required></textarea>
+            required
+            {{ with .module.fields.nextNeed.helperText }}aria-describedby="helper-next-need"{{ end }}></textarea>
           {{ with .module.fields.nextNeed.helperText }}
-            <div class="form-helper">{{ . }}</div>
+            <div class="form-helper" id="helper-next-need">{{ . }}</div>
           {{ end }}
           <div
             class="form-error"
@@ -288,6 +291,50 @@
     var roleOtherGroup = document.getElementById('group-role-other');
     var roleOtherInput = document.getElementById('field-role-other');
 
+    var hasErrors = false;
+    var firstInvalidControl = null;
+
+    function setError(groupId) {
+      var group = document.getElementById(groupId);
+      if (group) {
+        group.classList.add('has-error');
+        var control = group.querySelector('.form-control');
+        var errorEl = group.querySelector('.form-error');
+        if (control) {
+          control.setAttribute('aria-invalid', 'true');
+          if (errorEl && errorEl.id) {
+            var helperEl = group.querySelector('.form-helper');
+            if (helperEl && helperEl.id) {
+              control.setAttribute('aria-describedby', helperEl.id + ' ' + errorEl.id);
+            } else {
+              control.setAttribute('aria-describedby', errorEl.id);
+            }
+          }
+          if (!firstInvalidControl) {
+            firstInvalidControl = control;
+          }
+        }
+      }
+      hasErrors = true;
+    }
+
+    function clearError(groupId) {
+      var group = document.getElementById(groupId);
+      if (group) {
+        group.classList.remove('has-error');
+        var control = group.querySelector('.form-control');
+        if (control) {
+          control.removeAttribute('aria-invalid');
+          var helperEl = group.querySelector('.form-helper');
+          if (helperEl && helperEl.id) {
+            control.setAttribute('aria-describedby', helperEl.id);
+          } else {
+            control.removeAttribute('aria-describedby');
+          }
+        }
+      }
+    }
+
     // Conditional reveal for Field A: Other
     if (roleSelect && roleOtherGroup && roleOtherInput) {
       roleSelect.addEventListener('change', function() {
@@ -297,7 +344,7 @@
         } else {
           roleOtherGroup.classList.add('is-hidden');
           roleOtherInput.value = '';
-          roleOtherGroup.classList.remove('has-error');
+          clearError('group-role-other');
         }
       });
     }
@@ -309,7 +356,7 @@
       if (!control) return;
       var eventType = (control.tagName === 'SELECT' || control.type === 'checkbox') ? 'change' : 'input';
       control.addEventListener(eventType, function() {
-        group.classList.remove('has-error');
+        clearError(group.id);
       });
     });
 
@@ -321,27 +368,8 @@
       e.preventDefault();
       if (isSubmitting) return;
 
-      var hasErrors = false;
-      var firstInvalidControl = null;
-
-      function setError(groupId) {
-        var group = document.getElementById(groupId);
-        if (group) {
-          group.classList.add('has-error');
-          var control = group.querySelector('.form-control');
-          if (!firstInvalidControl && control) {
-            firstInvalidControl = control;
-          }
-        }
-        hasErrors = true;
-      }
-
-      function clearError(groupId) {
-        var group = document.getElementById(groupId);
-        if (group) {
-          group.classList.remove('has-error');
-        }
-      }
+      hasErrors = false;
+      firstInvalidControl = null;
 
       // 1. Role validation
       var roleVal = roleSelect ? roleSelect.value.trim() : '';

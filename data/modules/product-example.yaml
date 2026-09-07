@@ -1,13 +1,13 @@
 id: "product-example"
 type: "product-example"
-eyebrow: "Real-world workflow"
-heading: "How JENA directs campaigns with Sibryl"
-lede: "JENA provides software for solo salon professionals. Here is how their team directs new promotional pages without engineering bottlenecks."
+eyebrow: "Brand example"
+heading: "An example using JENA’s brand"
+lede: "See how a team might direct an on-brand campaign page in Sibryl, using JENA’s visual identity as an example."
 showcase:
   caption: "Illustrative campaign page generated from brand guidelines"
   prompt: "Build a campaign page for solo hair stylists focusing on zero booking fees."
   annotations:
     - title: "Direct brand matching"
-      desc: "Sibryl pulls JENA's purple (#302D45) and lime (#DCFF79) palette and distinctive salon photography."
-    - title: "Production-ready build"
+      desc: "Sibryl applies JENA’s purple and lime brand palette and salon photography."
+    - title: "Clean code ready to publish"
       desc: "Produces fast, lightweight code ready to review and publish immediately."

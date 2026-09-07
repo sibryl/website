@@ -6,7 +6,7 @@ lede: "Sibryl is built for teams whose ideas move faster than developer availabi
 marketers:
   title: "Marketers"
   tagline: "Direct campaign launches without waiting weeks"
-  body: "You need dedicated landing pages for ad campaigns, seasonal promos, and new offers. Instead of waiting for sprint capacity or wrestling brittle builders, you direct on-brand pages yourself."
+  body: "You need dedicated landing pages for ad campaigns, seasonal promos, and new offers. Instead of waiting for developer queues or wrestling brittle builders, you direct on-brand pages yourself."
   bullets:
     - "Launch promotional pages in days, not quarters"
     - "Test dedicated offer variations for campaigns"
@@ -14,7 +14,7 @@ marketers:
 agencies:
   title: "Agencies"
   tagline: "Deliver client websites with your existing team"
-  body: "You want to design and ship exceptional client sites without ballooning technical overhead. Direct the build visually and deliver robust, maintainable code."
+  body: "You want to design and ship exceptional client sites without developer bottlenecks. Direct the build visually and deliver robust, maintainable code."
   bullets:
     - "Turn visual concepts into clean sites faster"
     - "Enable account managers to direct client updates"
