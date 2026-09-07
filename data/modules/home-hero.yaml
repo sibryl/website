@@ -5,7 +5,7 @@ heading: "Your next campaign shouldn’t have to wait for your website."
 body: "Create, publish and improve on-brand pages. You direct. Sibryl handles the technical work."
 primaryAction:
   label: "Apply for early access"
-  href: "#apply"
+  href: "/apply"
 secondaryAction:
   label: "See how it works"
   href: "#how-it-works"

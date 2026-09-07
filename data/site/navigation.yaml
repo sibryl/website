@@ -7,5 +7,5 @@ primary:
     href: "#who-its-for"
   - id: "apply"
     label: "Apply for early access"
-    href: "#apply"
+    href: "/apply"
     isCta: true
