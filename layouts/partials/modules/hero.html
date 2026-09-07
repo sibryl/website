@@ -1,21 +1,137 @@
-<section class="hero section">
+<section class="hero section" id="top">
   <div class="container hero__inner">
-    <div class="hero__content">
-      <p class="eyebrow">
-        {{ .module.eyebrow }}
-      </p>
-      <h1>
+    <div class="hero__copy">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h1 class="hero__heading">
         {{ .module.heading }}
       </h1>
-      <p class="lede">
+      <p class="hero__lede">
         {{ .module.body }}
       </p>
-      <div class="action-row">
-        {{ partial "action.html" (dict "id" .module.primaryAction "class" "button") }}
+      <div class="hero__actions">
+        {{ with .module.primaryAction }}
+          <a
+            href="{{ .href }}"
+            class="button button--primary button--lg">
+            {{ .label }}
+          </a>
+        {{ end }}
+        {{ with .module.secondaryAction }}
+          <a
+            href="{{ .href }}"
+            class="button button--secondary button--lg">
+            {{ .label }}
+          </a>
+        {{ end }}
       </div>
     </div>
-    <div class="hero__mark" aria-hidden="true">
-      <img src="{{ "/images/brand/sibryl-mark.png" | relURL }}" alt="">
+
+    <div class="hero__visual">
+      <div class="studio-demo" aria-label="Sibryl Studio interface preview">
+        <div class="studio-demo__header">
+          <div class="studio-demo__dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span class="studio-demo__title">Sibryl Studio</span>
+          <span class="studio-demo__badge">{{ .module.demo.label }}</span>
+        </div>
+
+        <div class="studio-demo__body">
+          <!-- Left: Studio Chat -->
+          <div class="studio-chat">
+            <div class="studio-chat__header">
+              <span class="studio-chat__indicator" aria-hidden="true"></span>
+              <span class="studio-chat__title">{{ .module.demo.chat.title }}</span>
+            </div>
+            <div class="studio-chat__messages">
+              <div class="chat-bubble chat-bubble--user">
+                <p>{{ .module.demo.chat.userMessage }}</p>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                <p>{{ .module.demo.chat.assistantMessage }}</p>
+                <div class="chat-bubble__meta">
+                  <span class="badge-status">
+                    <span class="badge-status__dot" aria-hidden="true"></span>
+                    {{ .module.demo.chat.status }}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="studio-chat__prompt" aria-hidden="true">
+              <span class="studio-chat__prompt-icon"></span>
+              <span>{{ .module.demo.chat.inputPlaceholder }}</span>
+            </div>
+          </div>
+
+          <!-- Right: JENA Website Preview -->
+          <div class="studio-preview">
+            <div class="preview-bar">
+              <div class="preview-bar__address">
+                <svg
+                  class="preview-bar__lock"
+                  viewBox="0 0 16 16"
+                  width="12"
+                  height="12"
+                  fill="currentColor"
+                  aria-hidden="true">
+                  <path d="M4.5 6V4.5a3.5 3.5 0 0 1 7 0V6h.5a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-10a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h.5zm1.5 0h4V4.5a2 2 0 1 0-4 0V6z"/>
+                </svg>
+                <span class="preview-bar__url">{{ .module.demo.preview.url }}</span>
+              </div>
+              <span class="preview-bar__pill">{{ .module.demo.preview.status }}</span>
+            </div>
+            <div class="preview-canvas">
+              <div class="jena-mockup">
+                <div class="jena-mockup__nav">
+                  <span class="jena-mockup__logo">{{ .module.demo.preview.brandName }}</span>
+                  <span class="jena-mockup__nav-cta">Book a chat</span>
+                </div>
+                <div class="jena-mockup__hero">
+                  <div class="jena-mockup__tag">{{ .module.demo.preview.tagline }}</div>
+                  <h2 class="jena-mockup__title">
+                    {{ .module.demo.preview.headline }}
+                  </h2>
+                  <p class="jena-mockup__text">
+                    {{ .module.demo.preview.subhead }}
+                  </p>
+
+                  <div class="jena-mockup__tags">
+                    {{ range .module.demo.preview.tags }}
+                      <span class="jena-mockup__pill">{{ . }}</span>
+                    {{ end }}
+                  </div>
+
+                  <div class="jena-mockup__card">
+                    <div class="jena-mockup__card-header">
+                      <span class="jena-mockup__card-name">{{ .module.demo.preview.cardTitle }}</span>
+                      <span class="jena-mockup__card-badge">{{ .module.demo.preview.cardMeta }}</span>
+                    </div>
+                    <div class="jena-mockup__card-body">
+                      <div class="jena-mockup__card-visual" aria-hidden="true">
+                        <div class="jena-mockup__card-thumb"></div>
+                        <div class="jena-mockup__card-details">
+                          <span class="jena-mockup__card-service">{{ .module.demo.preview.cardService }}</span>
+                          <span class="jena-mockup__card-slot">{{ .module.demo.preview.cardSlots }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jena-mockup__action">
+                    <span class="jena-mockup__button">
+                      {{ .module.demo.preview.ctaLabel }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
