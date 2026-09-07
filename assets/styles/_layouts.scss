@@ -58,10 +58,10 @@
 }
 
 .section {
-  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
 
   &[id] {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 4.5rem;
   }
 }
 
@@ -71,13 +71,13 @@
 
 .section--apply {
   background: var(--color-canvas);
-  padding-block: clamp(4rem, 8vw, 7rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .hero {
   overflow: hidden;
   background: var(--color-canvas);
-  padding-block: clamp(3.5rem, 8vw, 6rem);
+  padding-block: clamp(3rem, 6vw, 4.5rem);
 }
 
 .hero__inner {
@@ -101,7 +101,11 @@
   max-width: 100%;
 
   @media (min-width: 992px) {
-    max-width: 38rem;
+    max-width: 37rem;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 36.5rem;
   }
 }
 
@@ -112,6 +116,7 @@
   line-height: 1.12;
   margin-bottom: 1.25rem;
   color: var(--color-text-charcoal);
+  text-wrap: balance;
 }
 
 .hero__lede {
@@ -189,7 +194,7 @@
 }
 
 .page-header {
-  padding-block: clamp(5rem, 12vw, 10rem);
+  padding-block: clamp(3rem, 6vw, 5rem);
 }
 
 .prose {

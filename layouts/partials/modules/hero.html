@@ -32,7 +32,11 @@
           <div class="hero-benefit">
             {{ if eq .id "on-brand" }}
               <svg class="hero-benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3v18M3 12h18M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
               </svg>
             {{ else if eq .id "built-to-launch" }}
               <svg class="hero-benefit__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -117,7 +121,10 @@
             
             <div class="floating-convo__msg floating-convo__msg--user">
               <div class="floating-convo__avatar floating-convo__avatar--orange" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
               </div>
               <p class="floating-convo__text">{{ .module.conversation.userMessage }}</p>
             </div>
@@ -129,9 +136,9 @@
           </div>
 
           <!-- Slender orange looping arrow curling upward toward customer page -->
-          <svg class="floating-convo__arrow" width="54" height="64" viewBox="0 0 54 64" fill="none" aria-hidden="true">
-            <path d="M12 56 C 2 34, 22 20, 36 28 C 44 32, 42 16, 44 6" stroke="#FF7900" stroke-width="2" stroke-linecap="round" fill="none"/>
-            <path d="M38 12 L44 6 L49 13" stroke="#FF7900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <svg class="floating-convo__arrow" width="58" height="72" viewBox="0 0 58 72" fill="none" aria-hidden="true">
+            <path d="M14 64 C 2 42, 20 18, 38 28 C 48 34, 46 16, 46 4" stroke="#FF7900" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M40 10 L46 4 L52 11" stroke="#FF7900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </div>
       </div>
