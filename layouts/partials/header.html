@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand-wordmark" href="{{ "/" | relURL }}" aria-label="Sibryl home">
+    <a class="brand-wordmark" href="{{ if .IsHome }}#top{{ else }}{{ "/" | relURL }}{{ end }}" aria-label="Sibryl home">
       Sibryl
     </a>
     {{ with site.Data.site.navigation.primary }}
