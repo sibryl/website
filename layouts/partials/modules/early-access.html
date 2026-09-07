@@ -1,65 +1,23 @@
 {{/*
-  Module: Early Access Application Form
-  Purpose: Project intake form via official Tally embed
+  Module: Early Access Closing Section
+  Purpose: Compact closing section directing visitors to /apply
   Data Source: .Site.Data.modules.early-access
 */}}
 
 <section
-  class="section section--apply"
+  class="section section--apply-cta"
   id="apply">
   <div class="container container--narrow">
-    <div class="apply-card">
-      <!-- Accessible heading for document structure (visually hidden to avoid double header with Tally) -->
-      <h2 class="visually-hidden">{{ .module.heading | default "What are you working on?" }}</h2>
-
-      <!-- Official Tally Inline Embed -->
-      <div class="apply-card__embed">
-        <iframe
-          src="https://tally.so/embed/OD2BXk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          data-tally-src="https://tally.so/embed/OD2BXk?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="350"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Sibryl early access"
-          style="border: 0; min-height: 480px; width: 100%;">
-        </iframe>
-      </div>
-
-      <!-- New Tab Fallback Link -->
-      <p class="apply-card__fallback">
-        Having trouble with the form?
+    <div class="apply-cta">
+      <h2 class="apply-cta__heading">{{ .module.heading | default "What are you working on?" }}</h2>
+      <p class="apply-cta__copy">{{ .module.copy | default "Tell us about your website and what you need next." }}</p>
+      <div class="apply-cta__action">
         <a
-          href="https://tally.so/r/OD2BXk"
-          target="_blank"
-          rel="noopener noreferrer">
-          Open form in a new tab &rarr;
+          href="{{ .module.action.href | default "/apply" }}"
+          class="button button--primary button--lg">
+          {{ .module.action.label | default "Apply for early access" }}
         </a>
-      </p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- Official Tally Embed Loader -->
-<script>
-  var d = document, w = "https://tally.so/widgets/embed.js", v = function() {
-    if (typeof Tally !== "undefined") {
-      Tally.loadEmbeds();
-    } else {
-      d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
-        e.src = e.dataset.tallySrc;
-      });
-    }
-  };
-  if (typeof Tally !== "undefined") {
-    v();
-  } else if (d.querySelector('script[src="' + w + '"]') == null) {
-    var s = d.createElement("script");
-    s.src = w;
-    s.onload = v;
-    s.onerror = v;
-    d.body.appendChild(s);
-  }
-</script>
