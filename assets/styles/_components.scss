@@ -113,154 +113,362 @@
   color: var(--color-text-secondary);
 }
 
-// Step Card Component (How It Works)
-.step-card {
+// Open Steps Component (How It Works)
+.open-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 2.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.open-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+
+  @media (min-width: 768px) {
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -1.25rem;
+      width: 1px;
+      height: 100%;
+      background: var(--color-divider);
+    }
+  }
+
+  &__number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-orange-functional);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-charcoal);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  &__body {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+}
+
+// Audience Split Component (Who It's For)
+.audience-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+
+  @media (min-width: 860px) {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
+  }
+}
+
+.audience-card {
   background: var(--color-surface-white);
   border: 1px solid var(--color-divider);
   border-radius: var(--radius-card);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
+  gap: 0.85rem;
+
+  &--marketers {
+    border-top: 3px solid var(--color-orange-functional);
+    box-shadow: var(--shadow-md);
+  }
+
+  &--agencies {
+    background: #FAF8F5;
+    border-top: 3px solid var(--color-border-control);
+  }
+
+  &__badge {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    background: var(--color-surface-orange-pale);
+    color: var(--color-text-orange-selected);
+
+    &--subtle {
+      background: var(--color-surface-subtle);
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-text-charcoal);
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  &__tagline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-charcoal);
+    margin: 0;
+  }
+
+  &__body {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--color-text-charcoal);
+      line-height: 1.4;
+    }
+  }
 }
 
-.step-card__number {
-  font-size: 2rem;
-  font-weight: 800;
+.audience-check {
   color: var(--color-orange-functional);
-  margin-bottom: 1rem;
-  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
 }
 
-.step-card__title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--color-text-charcoal);
-  line-height: 1.3;
+// Product Walkthrough Component (JENA Product Example)
+.product-walkthrough {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  align-items: center;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
 }
 
-.step-card__body {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-// Persona Card Component (Who It's For)
-.persona-card {
+.walkthrough-frame {
   background: var(--color-surface-white);
   border: 1px solid var(--color-divider);
   border-radius: var(--radius-card);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-}
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 
-.persona-card__header {
-  margin-bottom: 1.25rem;
-}
+  &__bar {
+    background: #F6F4EE;
+    border-bottom: 1px solid var(--color-divider);
+    padding: 0.6rem 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 
-.persona-card__title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.35rem;
-  color: var(--color-text-charcoal);
-  line-height: 1.2;
-}
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D8D4CA;
+  }
 
-.persona-card__focus {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-orange-functional);
-  margin: 0;
-}
-
-.persona-card__body {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin-bottom: 1.5rem;
-}
-
-.persona-card__list {
-  margin: 0;
-  padding-left: 1.25rem;
-  list-style-type: disc;
-  color: var(--color-text-secondary);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  li {
-    font-size: 0.925rem;
-    line-height: 1.5;
+  &__url {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    background: #FFFFFF;
+    border: 1px solid var(--color-divider);
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
   }
 }
 
-// Grounded Product Example (JENA Walkthrough)
-.example-panel {
-  background: var(--color-surface-subtle);
-  border: 1px solid var(--color-divider);
-  border-radius: var(--radius-panel);
-  padding: clamp(2rem, 5vw, 4rem);
+.walkthrough-preview {
+  background: #FFFFFF;
+
+  &__nav {
+    background: #302D45;
+    padding: 0.65rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__brand {
+    color: #DCFF79;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    font-size: 1rem;
+  }
+
+  &__badge {
+    background: rgba(220, 255, 121, 0.15);
+    color: #DCFF79;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+  }
+
+  &__hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 240px;
+    background: #FAF8F5;
+
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__copy {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    justify-content: center;
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #24231F;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.8rem;
+      line-height: 1.45;
+      color: #68655E;
+      margin: 0;
+    }
+  }
+
+  &__tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #7140D9;
+    letter-spacing: 0.08em;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    background: #DCFF79;
+    color: #24231F;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+  }
+
+  &__curved-img {
+    background: linear-gradient(135deg, #E6DDD4 0%, #CEBFB0 100%);
+    border-radius: 55% 0 0 48% / 50% 0 0 50%;
+
+    @media (max-width: 540px) {
+      min-height: 140px;
+      border-radius: 0;
+    }
+  }
 }
 
-.example-panel__header {
-  max-width: 48rem;
-  margin-bottom: 2rem;
-
-  .eyebrow {
-    margin-bottom: 0.75rem;
-  }
-
-  h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .lede {
-    margin-bottom: 0;
-  }
-}
-
-.timeline-step {
+.walkthrough-prompt-box {
   background: var(--color-surface-white);
   border: 1px solid var(--color-divider);
+  border-left: 3px solid var(--color-orange-functional);
   border-radius: var(--radius-card);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.75rem;
+
+  &__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  &__text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-charcoal);
+    line-height: 1.4;
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+.walkthrough-annotations {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1.25rem;
 }
 
-.timeline-step__marker {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--color-orange-functional);
-  line-height: 1;
-}
-
-.timeline-step__content {
+.walkthrough-annotation {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+  align-items: flex-start;
+  gap: 0.85rem;
 
-.timeline-step__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-  color: var(--color-text-charcoal);
-  line-height: 1.3;
-}
+  &__indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-orange-functional);
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
 
-.timeline-step__desc {
-  font-size: 0.9rem;
-  line-height: 1.55;
-  color: var(--color-text-secondary);
-  margin: 0;
+  &__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-charcoal);
+    margin: 0 0 0.2rem 0;
+  }
+
+  &__desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
 }
 
 // Hero Benefits Row

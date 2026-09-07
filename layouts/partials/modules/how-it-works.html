@@ -11,12 +11,14 @@
         <p class="lede">{{ . }}</p>
       {{ end }}
     </div>
-    <div class="steps-grid">
+    <div class="open-steps">
       {{ range .module.steps }}
-        <div class="step-card">
-          <div class="step-card__number">{{ .stepNumber }}</div>
-          <h3 class="step-card__title">{{ .title }}</h3>
-          <p class="step-card__body">{{ .body }}</p>
+        <div class="open-step">
+          <div class="open-step__number">{{ .stepNumber }}</div>
+          <div class="open-step__content">
+            <h3 class="open-step__title">{{ .title }}</h3>
+            <p class="open-step__body">{{ .body }}</p>
+          </div>
         </div>
       {{ end }}
     </div>

@@ -2,26 +2,62 @@
   class="section section--example"
   id="product-example">
   <div class="container">
-    <div class="example-panel">
-      <div class="example-panel__header">
-        {{ with .module.eyebrow }}
-          <p class="eyebrow">{{ . }}</p>
-        {{ end }}
-        <h2>{{ .module.heading }}</h2>
-        {{ with .module.lede }}
-          <p class="lede">{{ . }}</p>
-        {{ end }}
-      </div>
-      <div class="workflow-timeline">
-        {{ range .module.workflowSteps }}
-          <div class="timeline-step">
-            <div class="timeline-step__marker">{{ .stepNumber }}</div>
-            <div class="timeline-step__content">
-              <h3 class="timeline-step__title">{{ .title }}</h3>
-              <p class="timeline-step__desc">{{ .description }}</p>
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="product-walkthrough">
+      <!-- Visual Display: Grounded JENA Campaign Page Example -->
+      <div class="product-walkthrough__visual">
+        <div class="walkthrough-frame">
+          <div class="walkthrough-frame__bar">
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__url">jena.so/campaigns/zero-commission</span>
+          </div>
+          <div class="walkthrough-preview">
+            <div class="walkthrough-preview__nav">
+              <span class="walkthrough-preview__brand">JENA</span>
+              <span class="walkthrough-preview__badge">Zero-Fee Campaign</span>
+            </div>
+            <div class="walkthrough-preview__hero">
+              <div class="walkthrough-preview__copy">
+                <span class="walkthrough-preview__tag">FOR INDEPENDENT STYLISTS</span>
+                <h4>Keep 100% of your earnings on every booking.</h4>
+                <p>No new client fees, no surprise deductions, and no marketplace competition.</p>
+                <div class="walkthrough-preview__cta">Start Free Trial</div>
+              </div>
+              <div class="walkthrough-preview__curved-img" aria-hidden="true"></div>
             </div>
           </div>
-        {{ end }}
+        </div>
+      </div>
+
+      <!-- Grounded Explanation & Annotations -->
+      <div class="product-walkthrough__narrative">
+        <div class="walkthrough-prompt-box">
+          <span class="walkthrough-prompt-box__label">Directing prompt</span>
+          <p class="walkthrough-prompt-box__text">“{{ .module.showcase.prompt }}”</p>
+        </div>
+        
+        <div class="walkthrough-annotations">
+          {{ range .module.showcase.annotations }}
+            <div class="walkthrough-annotation">
+              <div class="walkthrough-annotation__indicator" aria-hidden="true"></div>
+              <div>
+                <h3 class="walkthrough-annotation__title">{{ .title }}</h3>
+                <p class="walkthrough-annotation__desc">{{ .desc }}</p>
+              </div>
+            </div>
+          {{ end }}
+        </div>
       </div>
     </div>
   </div>
