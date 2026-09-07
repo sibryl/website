@@ -354,6 +354,13 @@
     font-size: 1rem;
   }
 
+  &__brand-img {
+    height: 24px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
   &__badge {
     background: rgba(220, 255, 121, 0.15);
     color: #DCFF79;
@@ -651,6 +658,13 @@
     font-weight: 900;
     font-size: 1.15rem;
     letter-spacing: 0.12em;
+  }
+
+  &__logo-img {
+    height: 24px;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
 
   &__pill {
