@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="apply-page">
+    <div class="apply-container">
+      <!-- Accessible heading for screen readers; visually rendered once inside Tally form -->
+      <h1 class="visually-hidden">{{ .Title | default "Apply for early access" }}</h1>
+
+      <div class="apply-embed">
+        {{ block "apply-form" . }}{{ end }}
+      </div>
+    </div>
+  </div>
+{{ end }}
