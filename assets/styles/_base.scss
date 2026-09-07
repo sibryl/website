@@ -13,6 +13,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 img {
@@ -63,7 +64,7 @@ h3 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-text-charcoal);
+  outline: 2px solid var(--color-orange-functional);
   outline-offset: 2px;
 }
 
