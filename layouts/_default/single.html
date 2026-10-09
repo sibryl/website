@@ -12,6 +12,11 @@
           {{ . }}
         </p>
       {{ end }}
+      {{ with .Params.downloadurl }}
+        <p>
+          <a class="button button--primary button--lg" href="{{ . }}">Download for macOS</a>
+        </p>
+      {{ end }}
       {{ .Content }}
     </div>
   </article>
