@@ -1,0 +1,11 @@
+{
+  "worktree": {
+    "enabled": true,
+    "preserveStateOnCleanup": true,
+    "hooks": {
+      "preCreate": "",
+      "postCreate": ""
+    },
+    "dependencies": []
+  }
+}
