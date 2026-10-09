@@ -1,5 +1,6 @@
 ---
 title: 'Download Sibryl'
+url: '/downloads/desktop/'
 description: 'Get the latest Sibryl Studio alpha for your Mac.'
 draft: false
 simpleHeader: true
