@@ -1,7 +1,7 @@
 id: "home-hero"
 type: "hero"
 eyebrow: "Sibryl Studio"
-heading: "Your next campaign shouldn’t have to wait for your website."
+heading: "Build your next campaign, without waiting for tech resources"
 body: "Create, publish and improve on-brand pages. You direct. Sibryl handles the technical work."
 primaryAction:
   label: "Apply for early access"
