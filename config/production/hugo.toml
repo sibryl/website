@@ -6,3 +6,4 @@ buildFuture = false
 [params]
   environment = "production"
   indexable = true
+  analyticsMeasurementId = "G-HWW3261X87"

@@ -18,6 +18,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Sibryl helps teams shape and edit exceptional websites."
   environment = "default"
+  analyticsMeasurementId = ""
   indexable = false
   locale = "en_GB"
 

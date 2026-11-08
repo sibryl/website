@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="{{ "/" | relURL }}" aria-label="Sibryl home">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="Sibryl home" data-event="public_navigation_selected" data-event-placement="header-brand">
       <img class="brand__mark" src="{{ "/images/brand/sibryl-mark.png" | relURL }}" alt="">
       <span>
         Sibryl
@@ -11,7 +11,7 @@
         <ul class="nav-list">
           {{ range . }}
             <li>
-              <a href="{{ .href }}">
+              <a href="{{ .href }}" data-event="public_navigation_selected" data-event-placement="primary-navigation">
                 {{ .label }}
               </a>
             </li>

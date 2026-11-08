@@ -1,6 +1,6 @@
 {{ $action := index site.Data.site.actions .id }}
 {{ with $action }}
-  <a class="{{ $.class | default "button" }}" href="{{ .href }}">
+  <a class="{{ $.class | default "button" }}" href="{{ .href }}" data-event="public_cta_selected" data-event-placement="hero">
     {{ .label }}
   </a>
 {{ end }}
