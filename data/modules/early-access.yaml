@@ -1,0 +1,7 @@
+id: "early-access"
+type: "early-access"
+heading: "What are you working on?"
+copy: "Tell us about your website and what you need next."
+action:
+  label: "Apply for early access"
+  href: "/apply"

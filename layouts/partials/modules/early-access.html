@@ -1,0 +1,25 @@
+{{/*
+  Module: Early Access Closing Section
+  Purpose: Compact closing section directing visitors to /apply
+  Data Source: .Site.Data.modules.early-access
+*/}}
+
+<section
+  class="section section--apply-cta"
+  id="apply">
+  <div class="container container--narrow">
+    <div class="apply-cta">
+      <h2 class="apply-cta__heading">{{ .module.heading | default "What are you working on?" }}</h2>
+      <p class="apply-cta__copy">{{ .module.copy | default "Tell us about your website and what you need next." }}</p>
+      <div class="apply-cta__action">
+        <a
+          href="{{ .module.action.href | default "/apply" }}"
+          data-event="public_cta_selected"
+          data-event-placement="early-access"
+          class="button button--primary button--lg">
+          {{ .module.action.label | default "Apply for early access" }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

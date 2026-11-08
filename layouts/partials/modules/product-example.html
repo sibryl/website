@@ -1,0 +1,72 @@
+<section
+  class="section section--example"
+  id="product-example">
+  <div class="container">
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="product-walkthrough">
+      <!-- Visual Display: Grounded JENA Campaign Page Example -->
+      <div class="product-walkthrough__visual">
+        <div class="walkthrough-frame">
+          <div class="walkthrough-frame__bar">
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__dot"></span>
+            <span class="walkthrough-frame__url">jena.so/campaigns/zero-commission</span>
+          </div>
+          <div class="walkthrough-preview">
+            <div class="walkthrough-preview__nav">
+              <img class="walkthrough-preview__brand-img" src="{{ "/images/brand/jena-logo-lime.svg" | relURL }}" alt="JENA" width="90" height="24">
+              <span class="walkthrough-preview__badge">Zero-Fee Campaign</span>
+            </div>
+            <div class="walkthrough-preview__hero">
+              <div class="walkthrough-preview__copy">
+                <span class="walkthrough-preview__tag">FOR INDEPENDENT STYLISTS</span>
+                <h4>Keep 100% of your earnings on every booking.</h4>
+                <p>No new client fees, no surprise deductions, and no marketplace competition.</p>
+                <div class="walkthrough-preview__cta">Try JENA free</div>
+              </div>
+              <div class="walkthrough-preview__curved-img" aria-hidden="true">
+                <img
+                  class="walkthrough-preview__photo"
+                  src="/images/salon-owner.png"
+                  alt="Salon owner styling client hair"
+                  loading="lazy"
+                  width="320"
+                  height="240">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grounded Explanation & Annotations -->
+      <div class="product-walkthrough__narrative">
+        <div class="walkthrough-prompt-box">
+          <span class="walkthrough-prompt-box__label">Directing prompt</span>
+          <p class="walkthrough-prompt-box__text">“{{ .module.showcase.prompt }}”</p>
+        </div>
+        
+        <div class="walkthrough-annotations">
+          {{ range .module.showcase.annotations }}
+            <div class="walkthrough-annotation">
+              <div class="walkthrough-annotation__indicator" aria-hidden="true"></div>
+              <div>
+                <h3 class="walkthrough-annotation__title">{{ .title }}</h3>
+                <p class="walkthrough-annotation__desc">{{ .desc }}</p>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,34 @@
 id: "home-hero"
 type: "hero"
-eyebrow: "Sibryl"
-heading: "A website foundation made to evolve."
-body: "This is the starting point for sibryl.ai: a self-contained Hugo site with clear content, layout, and design-system seams for Sibryl to edit."
-primaryAction: "explore-foundation"
+eyebrow: "Sibryl Studio"
+heading: "Your next campaign shouldn’t have to wait for your website."
+body: "Create, publish and improve on-brand pages. You direct. Sibryl handles the technical work."
+primaryAction:
+  label: "Apply for early access"
+  href: "/apply"
+secondaryAction:
+  label: "See how it works"
+  href: "#how-it-works"
+benefits:
+  - id: "on-brand"
+    title: "On-brand by default"
+    description: "Pages built from your brand, every time."
+  - id: "built-to-launch"
+    title: "Built to launch"
+    description: "Sibryl handles the technical work."
+  - id: "made-for-marketers"
+    title: "Made for marketers"
+    description: "Move fast. Fewer handoffs."
+showcase:
+  browserUrl: "jena.so / Campaign page"
+  header:
+    brand: "JENA"
+    cta: "Try JENA free"
+  page:
+    headline: "More time for the work you love."
+    body: "JENA helps solo hair and beauty businesses run their business, not their admin."
+    cta: "Try JENA free"
+conversation:
+  label: "Illustrative Studio conversation"
+  userMessage: "Make a version of this page for our new campaign."
+  sibrylMessage: "The draft is ready. Take a look before publishing."

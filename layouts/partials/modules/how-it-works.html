@@ -1,0 +1,26 @@
+<section
+  class="section section--how-it-works"
+  id="how-it-works">
+  <div class="container">
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+    <div class="open-steps">
+      {{ range .module.steps }}
+        <div class="open-step">
+          <div class="open-step__number">{{ .stepNumber }}</div>
+          <div class="open-step__content">
+            <h3 class="open-step__title">{{ .title }}</h3>
+            <p class="open-step__body">{{ .body }}</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

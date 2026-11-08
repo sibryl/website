@@ -1,0 +1,49 @@
+<section
+  class="section section--who-its-for"
+  id="who-its-for">
+  <div class="container">
+    <div class="section-heading">
+      {{ with .module.eyebrow }}
+        <p class="eyebrow">{{ . }}</p>
+      {{ end }}
+      <h2>{{ .module.heading }}</h2>
+      {{ with .module.lede }}
+        <p class="lede">{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <div class="audience-split">
+      <!-- Marketers: Primary focus column -->
+      <div class="audience-card audience-card--marketers">
+        <div class="audience-card__badge">In-House Marketing</div>
+        <h3 class="audience-card__title">{{ .module.marketers.title }}</h3>
+        <p class="audience-card__tagline">{{ .module.marketers.tagline }}</p>
+        <p class="audience-card__body">{{ .module.marketers.body }}</p>
+        <ul class="audience-card__list">
+          {{ range .module.marketers.bullets }}
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="audience-check" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>{{ . }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <!-- Agencies: Delivery team column -->
+      <div class="audience-card audience-card--agencies">
+        <div class="audience-card__badge audience-card__badge--subtle">Client Delivery</div>
+        <h3 class="audience-card__title">{{ .module.agencies.title }}</h3>
+        <p class="audience-card__tagline">{{ .module.agencies.tagline }}</p>
+        <p class="audience-card__body">{{ .module.agencies.body }}</p>
+        <ul class="audience-card__list">
+          {{ range .module.agencies.bullets }}
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="audience-check" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>{{ . }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
