@@ -14,6 +14,8 @@
       <div class="apply-cta__action">
         <a
           href="{{ .module.action.href | default "/apply" }}"
+          data-event="public_cta_selected"
+          data-event-placement="early-access"
           class="button button--primary button--lg">
           {{ .module.action.label | default "Apply for early access" }}
         </a>

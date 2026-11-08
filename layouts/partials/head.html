@@ -1,6 +1,8 @@
 {{ $title := .Title | default site.Title }}
 {{ $description := .Params.description | default site.Params.description }}
 {{ $styles := resources.Get "styles/main.scss" | toCSS (dict "targetPath" "css/site.css") | minify | fingerprint }}
+{{ $events := resources.Get "scripts/site-events.js" | minify | fingerprint "sha384" }}
+{{ $googleAnalytics := resources.Get "scripts/google-analytics.js" | minify | fingerprint "sha384" }}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ $description }}">
@@ -12,6 +14,9 @@
 <title>
   {{ $title }}
 </title>
+{{ if ne .Kind "404" }}
+  <link rel="canonical" href="{{ .Permalink }}">
+{{ end }}
 <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relURL }}">
 <link rel="icon" type="image/x-icon" href="{{ "/favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relURL }}">
@@ -26,3 +31,5 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta name="twitter:card" content="summary">
+<script src="{{ $googleAnalytics.RelPermalink }}" integrity="{{ $googleAnalytics.Data.Integrity }}" defer></script>
+<script src="{{ $events.RelPermalink }}" integrity="{{ $events.Data.Integrity }}" defer></script>

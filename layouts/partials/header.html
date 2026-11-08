@@ -1,11 +1,11 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand-wordmark" href="{{ if .IsHome }}#top{{ else }}{{ "/" | relURL }}{{ end }}" aria-label="Sibryl home">
+    <a class="brand-wordmark" href="{{ if .IsHome }}#top{{ else }}{{ "/" | relURL }}{{ end }}" aria-label="Sibryl home" data-event="public_navigation_selected" data-event-placement="header-brand">
       <span class="brand-wordmark__name">Sibryl</span><span class="brand-wordmark__dot">.</span>
     </a>
     {{ if or (eq .Section "apply") (eq .Type "apply") (.Params.simpleHeader) }}
       <nav class="site-nav site-nav--simple" aria-label="Navigation">
-        <a href="{{ "/" | relURL }}" class="site-header__back">
+        <a href="{{ "/" | relURL }}" class="site-header__back" data-event="public_navigation_selected" data-event-placement="header-back">
           &larr; Back to home
         </a>
       </nav>
@@ -15,7 +15,7 @@
           <ul class="nav-list">
             {{ range . }}
               <li>
-                <a href="{{ .href }}" class="{{ if .isCta }}button button--primary button--sm{{ else }}nav-link{{ end }}">
+                <a href="{{ .href }}" class="{{ if .isCta }}button button--primary button--sm{{ else }}nav-link{{ end }}" data-event="{{ if .isCta }}public_cta_selected{{ else }}public_navigation_selected{{ end }}" data-event-placement="primary-navigation">
                   {{ .label }}
                 </a>
               </li>

@@ -14,6 +14,8 @@
         {{ with .module.primaryAction }}
           <a
             href="{{ .href }}"
+            data-event="public_cta_selected"
+            data-event-placement="hero-primary"
             class="button button--primary button--lg">
             {{ .label }}
           </a>
@@ -21,6 +23,8 @@
         {{ with .module.secondaryAction }}
           <a
             href="{{ .href }}"
+            data-event="public_navigation_selected"
+            data-event-placement="hero-secondary"
             class="button button--secondary button--lg">
             {{ .label }}
           </a>

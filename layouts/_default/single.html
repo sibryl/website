@@ -14,7 +14,7 @@
       {{ end }}
       {{ with .Params.downloadurl }}
         <p>
-          <a class="button button--primary button--lg" href="{{ . }}">Download for macOS</a>
+          <a class="button button--primary button--lg" href="{{ . }}" data-event="public_cta_selected" data-event-placement="download">Download for macOS</a>
         </p>
       {{ end }}
       {{ .Content }}

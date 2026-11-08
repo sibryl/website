@@ -19,6 +19,8 @@ npm run build
 
 The generated `public/` directory is ready for Cloudflare Pages. Its build command is `npm run build` and its output directory is `public`.
 
+The production GA4 measurement ID lives in `config/production/hugo.toml`; other environments leave it empty. The public site records page views, campaign query values, referrers, navigation clicks, and clicks on its existing apply and download links. It does not infer a completed application or download from a click.
+
 ## Open it in Sibryl
 
 Open the `website/` directory itself in Sibryl. Do not open `~/Projects/sibryl/` as the site project and do not add a nested `hugo/` directory.

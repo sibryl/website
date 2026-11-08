@@ -1,0 +1,7 @@
+User-agent: *
+{{ if site.Params.indexable -}}
+Allow: /
+{{ else -}}
+Disallow: /
+{{ end -}}
+Sitemap: {{ "sitemap.xml" | absURL }}
